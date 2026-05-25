@@ -6,6 +6,8 @@ import ArticleCard from "./components/ArticleCard";
 import PdfViewer from "./components/PdfViewer";
 import { Brain, GraduationCap, Menu, Newspaper, RotateCcw, Sparkles } from "lucide-react";
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 export default function App() {
   const [selectedIssue, setSelectedIssue] = useState(9);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -107,7 +109,7 @@ export default function App() {
   const heroHighlight = useMemo(() => {
     if (selectedIssue === 9) {
       return {
-        coverImage: "/B&M 9호표지.png",
+        coverImage: publicAsset("/B&M 9호표지.png"),
         title: "Brain & Mind 9호 발간",
         subtitle: "2025 Vol.3 No.1",
         description: "알츠하이머병 치료의 거대한 패러다임 신약 '레카네맙(레캄비)' 국내 본격 도입에 맞춘 개원가 필수 임상 가이드 및 ARIA 부작용 안전 대책 총망라 특집호",
@@ -118,7 +120,7 @@ export default function App() {
       };
     } else {
       return {
-        coverImage: "/B&M 8호표지.png",
+        coverImage: publicAsset("/B&M 8호표지.png"),
         title: "Brain & Mind 8호 발간",
         subtitle: "2024 Vol.2 No.4",
         description: "임상 현장에서 결코 간과해서는 안 될 '주관적 인지 저하(SCD)' 환자의 선제적 감별 노하우 및 실신·어지럼 유발 부정맥 감별을 위한 12유도 심전도 판독 특집호",
