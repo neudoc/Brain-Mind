@@ -52,21 +52,21 @@ export default function Sidebar({
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="flex items-center gap-3 border-b border-[rgba(255,255,255,0.08)] pb-6">
-        <div className="p-2.5 bg-gradient-to-tr from-[#14b8a6] to-[#38bdf8] rounded-lg shadow-[0_0_15px_rgba(20,184,166,0.22)] flex items-center justify-center">
-          <Brain className="w-6 h-6 text-[#060913]" />
+      <div className="flex items-center gap-3 border-b border-[#d9e0e7] pb-6">
+        <div className="p-2.5 bg-[#e8f1f6] rounded-lg border border-[#c9dbe8] flex items-center justify-center">
+          <Brain className="w-6 h-6 text-[#2b5c7e]" />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-xl font-bold tracking-tight text-white font-sans flex items-center gap-1.5">
+          <h1 className="text-xl font-bold tracking-tight text-[#1d2939] font-sans flex items-center gap-1.5">
             Brain & Mind
           </h1>
-          <span className="text-[0.68rem] tracking-widest text-[#34d399] uppercase font-semibold">
+          <span className="text-[0.68rem] tracking-widest text-[#2b5c7e] uppercase font-semibold">
             Journal Archive
           </span>
         </div>
         <button
           type="button"
-          className="ml-auto rounded-lg border border-white/10 bg-white/[0.03] p-2 text-slate-400 hover:text-white lg:hidden"
+          className="ml-auto rounded-lg border border-[#d0d5dd] bg-white p-2 text-[#667085] hover:text-[#1d2939] lg:hidden"
           aria-label="필터 메뉴 닫기"
           onClick={onClose}
         >
@@ -75,17 +75,17 @@ export default function Sidebar({
       </div>
 
       <div className="flex flex-col gap-3">
-        <h3 className="text-xs uppercase tracking-wider text-slate-400 font-bold flex items-center gap-2">
-          <Calendar className="w-3.5 h-3.5 text-[#10b981]" />
+        <h3 className="text-xs uppercase tracking-wider text-[#667085] font-bold flex items-center gap-2">
+          <Calendar className="w-3.5 h-3.5 text-[#2b5c7e]" />
           저널 호수 선택 (Issue)
         </h3>
-        <div className="grid grid-cols-2 gap-2 bg-[#060913] p-1 rounded-xl border border-[rgba(255,255,255,0.05)]">
+        <div className="grid grid-cols-2 gap-2 bg-[#f3f6f8] p-1 rounded-xl border border-[#d9e0e7]">
           <button
             onClick={() => setSelectedIssue(9)}
             className={`py-2 px-3 rounded-lg text-xs font-semibold tracking-wide transition-all ${
               selectedIssue === 9
-                ? "bg-[#14b8a6] text-[#03110f] shadow-[0_0_10px_rgba(20,184,166,0.22)]"
-                : "text-slate-400 hover:bg-white/[0.04] hover:text-white"
+                ? "bg-[#2b5c7e] text-white shadow-sm"
+                : "text-[#667085] hover:bg-white hover:text-[#1d2939]"
             }`}
           >
             B&M 9호 <span className="block text-[0.6rem] opacity-80">(최신호)</span>
@@ -94,8 +94,8 @@ export default function Sidebar({
             onClick={() => setSelectedIssue(8)}
             className={`py-2 px-3 rounded-lg text-xs font-semibold tracking-wide transition-all ${
               selectedIssue === 8
-                ? "bg-[#14b8a6] text-[#03110f] shadow-[0_0_10px_rgba(20,184,166,0.22)]"
-                : "text-slate-400 hover:bg-white/[0.04] hover:text-white"
+                ? "bg-[#2b5c7e] text-white shadow-sm"
+                : "text-[#667085] hover:bg-white hover:text-[#1d2939]"
             }`}
           >
             B&M 8호 <span className="block text-[0.6rem] opacity-80">(이전호)</span>
@@ -105,14 +105,14 @@ export default function Sidebar({
 
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
-          <h3 className="text-xs uppercase tracking-wider text-slate-400 font-bold flex items-center gap-2">
-            <Layers className="w-3.5 h-3.5 text-[#10b981]" />
+          <h3 className="text-xs uppercase tracking-wider text-[#667085] font-bold flex items-center gap-2">
+            <Layers className="w-3.5 h-3.5 text-[#2b5c7e]" />
             카테고리 필터
           </h3>
           {selectedCategories.length > 0 && (
             <button
               onClick={() => setSelectedCategories([])}
-              className="text-[0.65rem] text-[#34d399] hover:underline"
+              className="text-[0.65rem] text-[#2b5c7e] hover:underline"
             >
               초기화
             </button>
@@ -126,8 +126,8 @@ export default function Sidebar({
                 key={category}
               className={`flex items-center justify-between px-3 py-2.5 rounded-lg border text-xs cursor-pointer transition-all select-none ${
                   isChecked
-                    ? "bg-[rgba(16,185,129,0.06)] border-[#10b981] text-[#34d399]"
-                    : "bg-[#0c1224] border-[rgba(255,255,255,0.03)] text-slate-400 hover:text-white hover:border-[rgba(255,255,255,0.1)]"
+                    ? "bg-[#e8f1f6] border-[#2b5c7e] text-[#2b5c7e]"
+                    : "bg-white border-[#d9e0e7] text-[#475467] hover:text-[#1d2939] hover:border-[#adc3d4]"
                 }`}
               >
                 <div className="flex items-center gap-2.5">
@@ -140,8 +140,8 @@ export default function Sidebar({
                   <div
                     className={`w-3.5 h-3.5 rounded flex items-center justify-center border transition-all ${
                       isChecked
-                        ? "bg-[#10b981] border-[#10b981] text-[#060913]"
-                        : "border-slate-600 bg-transparent"
+                        ? "bg-[#2b5c7e] border-[#2b5c7e] text-white"
+                        : "border-[#98a2b3] bg-transparent"
                     }`}
                   >
                     {isChecked && (
@@ -155,7 +155,7 @@ export default function Sidebar({
                   </div>
                   <span className="font-medium">{getCategoryLabel(category)}</span>
                 </div>
-                <span className="text-[0.65rem] text-slate-500">{categoryCounts[category] || 0}</span>
+                <span className="text-[0.65rem] text-[#667085]">{categoryCounts[category] || 0}</span>
               </label>
             );
           })}
@@ -164,14 +164,14 @@ export default function Sidebar({
 
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
-          <h3 className="text-xs uppercase tracking-wider text-slate-400 font-bold flex items-center gap-2">
-            <Hash className="w-3.5 h-3.5 text-[#10b981]" />
+          <h3 className="text-xs uppercase tracking-wider text-[#667085] font-bold flex items-center gap-2">
+            <Hash className="w-3.5 h-3.5 text-[#2b5c7e]" />
             질환 및 주제 태그
           </h3>
           {selectedTags.length > 0 && (
             <button
               onClick={() => setSelectedTags([])}
-              className="text-[0.65rem] text-[#34d399] hover:underline"
+              className="text-[0.65rem] text-[#2b5c7e] hover:underline"
             >
               초기화
             </button>
@@ -186,8 +186,8 @@ export default function Sidebar({
                 onClick={() => handleTagToggle(tag)}
                 className={`text-[0.68rem] px-2.5 py-1.5 rounded-lg border font-medium transition-all ${
                   isSelected
-                    ? "bg-[#10b981] text-[#060913] border-[#10b981] shadow-[0_0_8px_rgba(16,185,129,0.25)]"
-                    : "bg-[#0c1224] border-[rgba(255,255,255,0.03)] text-slate-400 hover:text-white hover:border-[rgba(255,255,255,0.08)]"
+                    ? "bg-[#597c74] text-white border-[#597c74] shadow-sm"
+                    : "bg-white border-[#d9e0e7] text-[#475467] hover:text-[#1d2939] hover:border-[#adc3d4]"
                 }`}
               >
                 #{tag}
@@ -197,11 +197,11 @@ export default function Sidebar({
         </div>
       </div>
       
-      <div className="mt-auto border-t border-[rgba(255,255,255,0.08)] pt-4 text-center">
-        <span className="text-[0.6rem] text-slate-500 block">
+      <div className="mt-auto border-t border-[#d9e0e7] pt-4 text-center">
+        <span className="text-[0.6rem] text-[#667085] block">
           편집위원장 김상윤 [분당서울대병원]
         </span>
-        <span className="text-[0.6rem] text-slate-600 block mt-1">
+        <span className="text-[0.6rem] text-[#98a2b3] block mt-1">
           발행처 메디칼허브 • ISSN 2982-6829
         </span>
       </div>
