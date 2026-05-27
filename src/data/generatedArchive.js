@@ -19,7 +19,7 @@ export const generatedArticles = withPublicAssets([
     "title": "경도인지장애 Mild Cognitive Impairment",
     "author": "양동원",
     "institution": "가톨릭대학교 서울성모병원",
-    "pages": 10,
+    "pages": 7,
     "tags": [
       "스페셜토픽",
       "경도인지장애",
@@ -196,7 +196,7 @@ export const generatedArticles = withPublicAssets([
     "title": "전두측두엽치매",
     "author": "김은주, 정지향",
     "institution": "부산대학교병원 / 이화여자대학교 서울병원",
-    "pages": 10,
+    "pages": 7,
     "tags": [
       "스페셜토픽",
       "치매",
@@ -367,7 +367,7 @@ export const generatedArticles = withPublicAssets([
     "title": "Precision medicine in dementia",
     "author": "임재성",
     "institution": "울산대학교 서울아산병원",
-    "pages": 8,
+    "pages": 5,
     "tags": [
       "스페셜토픽",
       "Brain&Mind"
@@ -540,7 +540,7 @@ export const generatedArticles = withPublicAssets([
     "title": "알츠하이머병이 아닌 병리를 의심하는 소견: 개요 및 중요성",
     "author": "정지향",
     "institution": "이화여자대학교 이대서울병원",
-    "pages": 10,
+    "pages": 7,
     "tags": [
       "스페셜토픽",
       "알츠하이머",
@@ -716,7 +716,7 @@ export const generatedArticles = withPublicAssets([
     "title": "치매의 신경정신증상 - 1부 : 증상의 이해",
     "author": "김성윤",
     "institution": "울산대학교 서울아산병원",
-    "pages": 10,
+    "pages": 7,
     "tags": [
       "스페셜토픽",
       "치매",
@@ -918,7 +918,7 @@ export const generatedArticles = withPublicAssets([
     "title": "치매의 신경정신증상 - 2부 : 치료(약물 및 비약물적 접근)",
     "author": "김성윤",
     "institution": "울산대학교 서울아산병원",
-    "pages": 10,
+    "pages": 7,
     "tags": [
       "스페셜토픽",
       "치매",
@@ -1118,7 +1118,7 @@ export const generatedArticles = withPublicAssets([
     "title": "노인 정상압수두증의 진단 및 치료",
     "author": "강경훈",
     "institution": "칠곡경북대학교병원",
-    "pages": 8,
+    "pages": 5,
     "tags": [
       "스페셜토픽",
       "정상압수두증",
@@ -1318,7 +1318,7 @@ export const generatedArticles = withPublicAssets([
     "title": "치매의 예방: 인지 기능의 저하 없이 노년을 즐기기 위해서",
     "author": "김상윤",
     "institution": "분당서울대학교병원",
-    "pages": 8,
+    "pages": 5,
     "tags": [
       "스페셜토픽",
       "치매",
@@ -1500,7 +1500,7 @@ export const generatedArticles = withPublicAssets([
     "title": "노년기 우울증과 인지 저하 / 왜, 치매 예방·중재·돌봄인가?: 2024년 ‘Lancet’ 보고서 정리",
     "author": "김성윤, 정지향",
     "institution": "울산대학교 서울아산병원 / 이화여자대학교 이대서울병원",
-    "pages": 16,
+    "pages": 13,
     "tags": [
       "스페셜토픽",
       "치매",
@@ -1678,7 +1678,7 @@ export const generatedArticles = withPublicAssets([
     "title": "섬망과 치매의 상호작용: 병태생리, 임상적 함의 및 delirium superimposed on dementia에 대한 최신 고찰 / 미국 US POINTER 무작위 임상 시험 분석: 인지 저하 고위험 노인 에서 다영역 생활습관 중재의 인지 보호 효과",
     "author": "나해리, 정지향",
     "institution": "보바스기념병원 / 이화여자대학교 이대서울병원",
-    "pages": 22,
+    "pages": 19,
     "tags": [
       "스페셜토픽",
       "치매",
@@ -1856,7 +1856,7 @@ export const generatedArticles = withPublicAssets([
     "title": "고령에서의 수면 변화: 생리적 노화 및 수면 장애 / 오래된 정신과 약, ‘리튬’ 다시 보기",
     "author": "김지현, 김성윤",
     "institution": "이화여자대학교 이대서울병원 / 김성윤정신건강의학과의원",
-    "pages": 14,
+    "pages": 11,
     "tags": [
       "스페셜토픽",
       "리튬",
