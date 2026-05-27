@@ -25,7 +25,7 @@ export default function Header({
         </h2>
         <p className="text-xs text-[#667085] font-medium flex items-center gap-1.5">
           <Info className="w-3.5 h-3.5 text-[#98a2b3]" />
-          바쁜 임상 진료 현장에서 즉시 활용할 수 있도록 정제된 3줄 핵심 임상 팁을 제공합니다.
+          바쁜 임상 진료 현장에서 필요한 원고별 PDF와 핵심 주제를 빠르게 찾을 수 있습니다.
         </p>
       </div>
 

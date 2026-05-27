@@ -3,6 +3,7 @@ import { Brain, Calendar, Hash, Layers, X } from "lucide-react";
 export default function Sidebar({
   isOpen,
   onClose,
+  issues,
   selectedIssue,
   setSelectedIssue,
   selectedCategories,
@@ -81,25 +82,37 @@ export default function Sidebar({
         </h3>
         <div className="grid grid-cols-2 gap-2 bg-[#f3f6f8] p-1 rounded-xl border border-[#d9e0e7]">
           <button
-            onClick={() => setSelectedIssue(9)}
-            className={`py-2 px-3 rounded-lg text-xs font-semibold tracking-wide transition-all ${
-              selectedIssue === 9
+            onClick={() => setSelectedIssue("all")}
+            className={`col-span-2 py-2.5 px-3 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+              selectedIssue === "all"
                 ? "bg-[#2b5c7e] text-white shadow-sm"
                 : "text-[#667085] hover:bg-white hover:text-[#1d2939]"
             }`}
           >
-            B&M 9호 <span className="block text-[0.6rem] opacity-80">(최신호)</span>
+            전체 호수
+            <span className="block text-[0.56rem] opacity-80">
+              1-13호 통합 검색
+            </span>
           </button>
-          <button
-            onClick={() => setSelectedIssue(8)}
-            className={`py-2 px-3 rounded-lg text-xs font-semibold tracking-wide transition-all ${
-              selectedIssue === 8
-                ? "bg-[#2b5c7e] text-white shadow-sm"
-                : "text-[#667085] hover:bg-white hover:text-[#1d2939]"
-            }`}
-          >
-            B&M 8호 <span className="block text-[0.6rem] opacity-80">(이전호)</span>
-          </button>
+          {issues.map((issue) => {
+            const isSelected = selectedIssue === issue.issueNum;
+            return (
+              <button
+                key={issue.issueNum}
+                onClick={() => setSelectedIssue(issue.issueNum)}
+                className={`py-2 px-2 rounded-lg text-xs font-semibold tracking-wide transition-all ${
+                  isSelected
+                    ? "bg-[#2b5c7e] text-white shadow-sm"
+                    : "text-[#667085] hover:bg-white hover:text-[#1d2939]"
+                }`}
+              >
+                B&M {issue.issueNum}호
+                <span className="block text-[0.56rem] opacity-80">
+                  {issue.issueNum === issues[0]?.issueNum ? "(최신호)" : issue.issueTitle.replace(/^20\d{2}\s+/, "")}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </div>
 

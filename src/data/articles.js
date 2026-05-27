@@ -1,9 +1,11 @@
+import { generatedArticles } from "./generatedArchive";
+
 // Brain & Mind 저널 아카이브 실제 아티클 데이터베이스 (8호 & 9호)
 // 모든 정보는 실제 원고 PDF 추출본을 기초로 일반의사들이 활용하기 쉽도록 재구성되었습니다.
 
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
-export const articles = [
+const legacyArticles = [
   // ================= B&M 9호 (최신호) =================
   {
     id: "bm-9-01",
@@ -386,3 +388,10 @@ export const articles = [
     ]
   }
 ];
+
+export const articles = [...generatedArticles, ...legacyArticles].sort((a, b) => {
+  if (b.issueNum !== a.issueNum) return b.issueNum - a.issueNum;
+  return a.filename.localeCompare(b.filename, "ko");
+});
+
+export { issueMetadata } from "./generatedArchive";

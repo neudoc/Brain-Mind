@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { articles } from "./data/articles";
+import { articles, issueMetadata } from "./data/articles";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import ArticleCard from "./components/ArticleCard";
@@ -9,7 +9,8 @@ import { Brain, GraduationCap, Menu, Newspaper, RotateCcw, Sparkles } from "luci
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
 export default function App() {
-  const [selectedIssue, setSelectedIssue] = useState(9);
+  const latestIssueNum = issueMetadata[0]?.issueNum ?? 13;
+  const [selectedIssue, setSelectedIssue] = useState("all");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,9 +22,15 @@ export default function App() {
     isOpen: false
   });
 
+  const issueArticles = useMemo(
+    () =>
+      selectedIssue === "all"
+        ? articles
+        : articles.filter((art) => art.issueNum === selectedIssue),
+    [selectedIssue]
+  );
+
   const { availableCategories, availableTags, categoryCounts } = useMemo(() => {
-    const issueArticles = articles.filter((art) => art.issueNum === selectedIssue);
-    
     const cats = [...new Set(issueArticles.map((art) => art.category))];
     const counts = issueArticles.reduce((acc, art) => {
       acc[art.category] = (acc[art.category] || 0) + 1;
@@ -40,7 +47,7 @@ export default function App() {
       availableTags: Array.from(tagsSet),
       categoryCounts: counts
     };
-  }, [selectedIssue]);
+  }, [issueArticles]);
 
   const handleIssueChange = (issueNum) => {
     setSelectedIssue(issueNum);
@@ -57,9 +64,7 @@ export default function App() {
   };
 
   const filteredArticles = useMemo(() => {
-    return articles.filter((art) => {
-      if (art.issueNum !== selectedIssue) return false;
-
+    return issueArticles.filter((art) => {
       if (selectedCategories.length > 0 && !selectedCategories.includes(art.category)) {
         return false;
       }
@@ -83,7 +88,7 @@ export default function App() {
 
       return true;
     });
-  }, [selectedIssue, selectedCategories, selectedTags, searchQuery]);
+  }, [issueArticles, selectedCategories, selectedTags, searchQuery]);
 
   const handleViewPdf = (pdfPath, title) => {
     setViewerState({
@@ -96,41 +101,52 @@ export default function App() {
   const activeFilterCount =
     selectedCategories.length + selectedTags.length + (searchQuery.trim() ? 1 : 0);
 
-  const issueArticles = useMemo(
-    () => articles.filter((art) => art.issueNum === selectedIssue),
-    [selectedIssue]
-  );
-
   const totalPages = useMemo(
     () => issueArticles.reduce((sum, article) => sum + article.pages, 0),
     [issueArticles]
   );
 
   const heroHighlight = useMemo(() => {
-    if (selectedIssue === 9) {
+    if (selectedIssue === "all") {
       return {
-        coverImage: publicAsset("/B&M 9호표지.png"),
-        title: "Brain & Mind 9호 발간",
-        subtitle: "2025 Vol.3 No.1",
-        description: "알츠하이머병 치료의 거대한 패러다임 신약 '레카네맙(레캄비)' 국내 본격 도입에 맞춘 개원가 필수 임상 가이드 및 ARIA 부작용 안전 대책 총망라 특집호",
-        badge: "최신호 발간",
+        coverImage: issueMetadata[0]?.coverImage ?? publicAsset(`/B&M ${latestIssueNum}호표지.png`),
+        title: "Brain & Mind 전체 호수 통합 검색",
+        subtitle: "Vol.1 No.1 - 최신호",
+        description: "1호부터 13호까지 모든 Brain & Mind 원고를 한 번에 검색하고, 카테고리와 태그로 좁혀볼 수 있는 통합 아카이브입니다.",
+        badge: "전체 검색",
+        accent: "전체 호수 원고별 PDF",
         themeColor: "from-[#ffffff] via-[#f7fafc] to-[#edf5f2] border-[#d6e2ea]",
-        pillColor: "bg-[#e8f1f6] text-[#2b5c7e] border-[#c9dbe8]",
-        accent: "레카네맙 임상 처방 특집"
-      };
-    } else {
-      return {
-        coverImage: publicAsset("/B&M 8호표지.png"),
-        title: "Brain & Mind 8호 발간",
-        subtitle: "2024 Vol.2 No.4",
-        description: "임상 현장에서 결코 간과해서는 안 될 '주관적 인지 저하(SCD)' 환자의 선제적 감별 노하우 및 실신·어지럼 유발 부정맥 감별을 위한 12유도 심전도 판독 특집호",
-        badge: "이전호 아카이브",
-        themeColor: "from-[#ffffff] via-[#faf8f5] to-[#f5eee8] border-[#e3d8cf]",
-        pillColor: "bg-[#f5eee8] text-[#8d5731] border-[#e5d0c1]",
-        accent: "주관적 인지저하(SCD) 및 실신 심전도 판독 특집"
+        pillColor: "bg-[#e8f1f6] text-[#2b5c7e] border-[#c9dbe8]"
       };
     }
-  }, [selectedIssue]);
+
+    const meta = issueMetadata.find((issue) => issue.issueNum === selectedIssue);
+    const palette = [
+      {
+        themeColor: "from-[#ffffff] via-[#f7fafc] to-[#edf5f2] border-[#d6e2ea]",
+        pillColor: "bg-[#e8f1f6] text-[#2b5c7e] border-[#c9dbe8]"
+      },
+      {
+        themeColor: "from-[#ffffff] via-[#f8faf7] to-[#eef6ef] border-[#d7e4d7]",
+        pillColor: "bg-[#edf5f2] text-[#426b63] border-[#cfe2dc]"
+      },
+      {
+        themeColor: "from-[#ffffff] via-[#faf8f5] to-[#f5eee8] border-[#e3d8cf]",
+        pillColor: "bg-[#f5eee8] text-[#8d5731] border-[#e5d0c1]"
+      }
+    ];
+    const colors = palette[selectedIssue % palette.length];
+
+    return {
+      coverImage: meta?.coverImage ?? publicAsset(`/B&M ${selectedIssue}호표지.png`),
+      title: meta?.title ?? `Brain & Mind ${selectedIssue}호 발간`,
+      subtitle: meta?.issueTitle ?? "",
+      description: meta?.description ?? "Brain & Mind 원고별 PDF 아카이브입니다.",
+      badge: selectedIssue === latestIssueNum ? "최신호 발간" : (meta?.badge ?? "아카이브"),
+      accent: meta?.accent ?? "원고별 PDF 아카이브",
+      ...colors
+    };
+  }, [latestIssueNum, selectedIssue]);
 
   return (
     <div className="min-h-screen flex text-[#1d2939] font-sans relative overflow-hidden">
@@ -148,6 +164,7 @@ export default function App() {
       <Sidebar
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
+        issues={issueMetadata}
         selectedIssue={selectedIssue}
         setSelectedIssue={handleIssueChange}
         selectedCategories={selectedCategories}
