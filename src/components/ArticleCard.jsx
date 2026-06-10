@@ -75,7 +75,6 @@ export default function ArticleCard({ article, onViewPdf }) {
             <span className="w-1.5 h-3.5 bg-[#597c74] rounded-full"></span>
             <h4 className="text-[0.725rem] font-bold text-[#597c74] tracking-wider uppercase flex items-center gap-1">
               Clinical Pearls
-              <Sparkles className="w-3 h-3 text-[#597c74]" />
             </h4>
           </div>
           <ul className="flex flex-col gap-2.5">
