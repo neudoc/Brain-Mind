@@ -1,5 +1,27 @@
 import { Download, Eye, FileText, User, Building, Sparkles } from "lucide-react";
 
+// title 내 슬래시(/) 감지 후 번호 및 줄바꿈 적용 헬퍼
+const renderTitle = (titleStr) => {
+  if (!titleStr) return null;
+  // 슬래시(/) 기준으로 분할 후 앞뒤 공백 제거
+  const titleParts = titleStr.split("/").map((part) => part.trim()).filter(Boolean);
+  
+  if (titleParts.length <= 1) {
+    return titleStr;
+  }
+  
+  return (
+    <span className="flex flex-col gap-2">
+      {titleParts.map((part, index) => (
+        <span key={index} className="flex items-start gap-1">
+          <span className="text-[#597c74] font-extrabold shrink-0">{index + 1}.</span>
+          <span className="block">{part}</span>
+        </span>
+      ))}
+    </span>
+  );
+};
+
 export default function ArticleCard({ article, onViewPdf }) {
   const {
     title,
@@ -50,7 +72,7 @@ export default function ArticleCard({ article, onViewPdf }) {
         </div>
 
         <h3 className="text-[0.95rem] md:text-[1.05rem] font-extrabold text-[#1d2939] group-hover:text-[#2b5c7e] transition-colors duration-300 leading-snug mb-5 tracking-tight">
-          {title}
+          {renderTitle(title)}
         </h3>
 
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[0.7rem] text-[#667085] font-semibold mb-7 select-none">
