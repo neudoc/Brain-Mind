@@ -66,10 +66,6 @@ export default function ArticleCard({ article, onViewPdf }) {
           )}
         </div>
 
-        <p className="text-[0.76rem] text-[#475467] leading-relaxed font-normal mb-5.5 border-l border-[#d0d5dd] pl-3.5">
-          {summary}
-        </p>
-
         <div className="pearls-box p-5 mb-6 shadow-sm">
           <div className="flex items-center gap-2 mb-3.5 select-none">
             <span className="w-1.5 h-3.5 bg-[#597c74] rounded-full"></span>
