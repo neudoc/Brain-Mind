@@ -49,9 +49,7 @@ export default function Sidebar({
 
   return (
     <aside
-      className={`w-[19.5rem] glass-panel h-screen fixed left-0 top-0 overflow-y-auto px-5 py-6 flex flex-col gap-7 z-30 select-none transition-transform duration-300 lg:translate-x-0 ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
+      className={`sidebar-panel ${isOpen ? "sidebar-panel-open" : ""} w-[19.5rem] glass-panel h-screen fixed left-0 top-0 overflow-y-auto px-5 py-6 flex flex-col gap-7 z-30 select-none`}
     >
       <div className="flex items-center gap-3 border-b border-[#d9e0e7] pb-6">
         <div className="p-2.5 bg-[#e8f1f6] rounded-lg border border-[#c9dbe8] flex items-center justify-center">
