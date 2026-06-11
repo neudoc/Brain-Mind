@@ -147,6 +147,13 @@ input:focus-visible {
   background: #f2f8f6;
 }
 
+.summary-line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .badge {
   display: inline-flex;
   align-items: center;

@@ -1,4 +1,4 @@
-import { Download, Eye, FileText, User, Building, Sparkles } from "lucide-react";
+import { Download, Eye, FileText, User, Building } from "lucide-react";
 
 // title 내 슬래시(/) 감지 후 번호 및 줄바꿈 적용 헬퍼
 const renderTitle = (titleStr) => {
@@ -30,7 +30,6 @@ export default function ArticleCard({ article, onViewPdf }) {
     category,
     pages,
     tags,
-    summary,
     clinicalPearls,
     pdfPath,
     filename,
@@ -53,6 +52,7 @@ export default function ArticleCard({ article, onViewPdf }) {
   };
 
   const catMeta = getCategoryMeta(category);
+  const sectionTitle = category === "Q&A" || category === "B-M News" ? "소개" : "요약";
 
   return (
     <article className="glass-card flex flex-col justify-between p-5 sm:p-6 h-full border border-[#d9e0e7] transition-all duration-300 relative group animate-fade-in">
@@ -91,17 +91,17 @@ export default function ArticleCard({ article, onViewPdf }) {
         <div className="pearls-box p-5 mb-6 shadow-sm">
           <div className="flex items-center gap-2 mb-3.5 select-none">
             <span className="w-1.5 h-3.5 bg-[#597c74] rounded-full"></span>
-            <h4 className="text-[0.725rem] font-bold text-[#597c74] tracking-wider uppercase flex items-center gap-1">
-              Clinical Pearls
+            <h4 className="text-[0.725rem] font-bold text-[#597c74] tracking-wider flex items-center gap-1">
+              {sectionTitle}
             </h4>
           </div>
           <ul className="flex flex-col gap-2.5">
             {clinicalPearls.map((pearl, index) => (
               <li key={index} className="flex gap-2.5 text-[0.76rem] text-[#344054] leading-relaxed font-normal">
-                <span className="text-[#597c74] font-extrabold text-[0.75rem] shrink-0 mt-0.5">
-                  0{index + 1}.
+                <span className="text-[#597c74] font-extrabold text-[1rem] leading-none shrink-0 mt-0.5" aria-hidden="true">
+                  •
                 </span>
-                <span>{pearl}</span>
+                <span className="summary-line-clamp">{pearl}</span>
               </li>
             ))}
           </ul>
