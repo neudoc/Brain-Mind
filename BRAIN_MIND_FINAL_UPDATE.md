@@ -124,3 +124,4 @@ npm run build
 - `src/data/generatedArchive.js`에 `bm-14-01`~`bm-14-07` 카드와 14호 issueMetadata를 추가했고, 13호 badge는 `아카이브`로 변경했습니다.
 - `src/App.jsx`, `src/components/Sidebar.jsx`의 최신호 번호와 "1-14호 통합 검색" 문구를 갱신했습니다.
 - 참고: 처음 전달된 Doctor Plus 파일은 15호 원고였으며, 14호 원고(커피 원두 등급, 파우스트, 정신 증상과 예술, 왕과 사는 남자)로 교체했습니다.
+- 14호 전체본 `BM PDF/B_M 14호.pdf`(77p)를 추가했습니다. 앞표지 1쪽 + 7개 섹션 원본(판권·목차·Book Guide 포함) 순서이며, 재단선(trim box) 기준으로 잘라 크롭마크를 없앴고 섹션별 책갈피를 넣었습니다.
