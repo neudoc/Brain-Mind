@@ -1,4 +1,4 @@
-import { Brain, Calendar, Hash, Layers, X } from "lucide-react";
+import { Calendar, Hash, Layers, X } from "lucide-react";
 
 export default function Sidebar({
   isOpen,
@@ -52,9 +52,13 @@ export default function Sidebar({
       className={`sidebar-panel ${isOpen ? "sidebar-panel-open" : ""} w-[19.5rem] glass-panel h-screen fixed left-0 top-0 overflow-y-auto px-5 py-6 flex flex-col gap-7 z-30 select-none`}
     >
       <div className="flex items-center gap-3 border-b border-[#d9e0e7] pb-6">
-        <div className="p-2.5 bg-[#e8f1f6] rounded-lg border border-[#c9dbe8] flex items-center justify-center">
-          <Brain className="w-6 h-6 text-[#2b5c7e]" />
-        </div>
+        <img
+          src={`${import.meta.env.BASE_URL}brain-logo.png`}
+          alt="Brain & Mind"
+          width="48"
+          height="48"
+          className="w-12 h-12 shrink-0 object-contain"
+        />
         <div className="flex flex-col">
           <h1 className="text-xl font-bold tracking-tight text-[#1d2939] font-sans flex items-center gap-1.5">
             Brain & Mind
