@@ -89,7 +89,7 @@ export default function Sidebar({
           >
             전체 호수
             <span className="block text-[0.56rem] opacity-80">
-              1-13호 통합 검색
+              1-14호 통합 검색
             </span>
           </button>
           {issues.map((issue) => {

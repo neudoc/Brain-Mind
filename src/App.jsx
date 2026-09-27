@@ -9,7 +9,7 @@ import { Brain, GraduationCap, Menu, Newspaper, RotateCcw, Sparkles } from "luci
 const publicAsset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
 export default function App() {
-  const latestIssueNum = issueMetadata[0]?.issueNum ?? 13;
+  const latestIssueNum = issueMetadata[0]?.issueNum ?? 14;
   const [selectedIssue, setSelectedIssue] = useState("all");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
@@ -112,7 +112,7 @@ export default function App() {
         coverImage: issueMetadata[0]?.coverImage ?? publicAsset(`/B&M ${latestIssueNum}호표지.png`),
         title: "Brain & Mind 전체 호수 통합 검색",
         subtitle: "Vol.1 No.1 - 최신호",
-        description: "1호부터 13호까지 모든 Brain & Mind 원고를 한 번에 검색하고, 카테고리와 태그로 좁혀볼 수 있는 통합 아카이브입니다.",
+        description: "1호부터 14호까지 모든 Brain & Mind 원고를 한 번에 검색하고, 카테고리와 태그로 좁혀볼 수 있는 통합 아카이브입니다.",
         badge: "전체 검색",
         accent: "전체 호수 원고별 PDF",
         themeColor: "from-[#ffffff] via-[#f7fafc] to-[#edf5f2] border-[#d6e2ea]",

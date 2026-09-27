@@ -114,3 +114,13 @@ npm run build
 - 원본 전체 PDF가 들어 있는 `BM PDF/` 폴더는 로컬 작업용입니다.
 - 웹 배포에는 `public/` 아래의 분할 PDF와 표지 이미지가 사용됩니다.
 - `BM PDF/`는 중복 대용량 원본이므로 GitHub에는 커밋하지 않았습니다.
+
+## 2026-09-27 B&M 14호 추가
+
+- `public/B&M 14/`에 7개 섹션 PDF를 등록했습니다 (01 Special Topic 12p, 02 Morning Conference Case 9p, 03 Article Review 17p, 04 Special Review 4p, 05 Doctor Plus 18p, 06 Q_A 6p, 07 B-M News 4p).
+- 01 Special Topic은 판권·목차 페이지를 제외하고 섹션 간지부터 시작하도록 정리했고, 02와 03 뒤에 붙어 있던 Book Guide 페이지는 제외했습니다.
+- 05 Doctor Plus는 원본 이미지를 170 dpi로 낮춰 12 MB로 정리했습니다.
+- 표지는 인쇄용 펼침면 PDF에서 앞표지만 잘라 `public/B&M 14호표지.png`로 저장했습니다.
+- `src/data/generatedArchive.js`에 `bm-14-01`~`bm-14-07` 카드와 14호 issueMetadata를 추가했고, 13호 badge는 `아카이브`로 변경했습니다.
+- `src/App.jsx`, `src/components/Sidebar.jsx`의 최신호 번호와 "1-14호 통합 검색" 문구를 갱신했습니다.
+- 참고: 처음 전달된 Doctor Plus 파일은 15호 원고였으며, 14호 원고(커피 원두 등급, 파우스트, 정신 증상과 예술, 왕과 사는 남자)로 교체했습니다.
